@@ -31,7 +31,7 @@ init -1 python:
             if calendarWeekDay > 7:
                 calendarWeekDay = 1
                 
-            calendarWeekDayString = Calendar.dayOfWeek()
+            calendarWeekDayString = "THRUSDAY"
             
             
         def dayOfWeek():

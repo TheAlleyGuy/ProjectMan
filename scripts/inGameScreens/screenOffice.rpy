@@ -31,11 +31,11 @@ screen statusBar:
             xalign 0.01
             yalign 0.5
 
-            text "[calendarWeekDayString]"
+            text "[calendarWeekDayString] = [calendarWeekDay]"
             text "{size=35}[calendarDay]/[calendarMonth]/[calendarYear]{/size}"
         
         imagebutton auto "gui/statusBar/timeIcon_%s.png" action Function(Calendar.nextDay):
-            xpos 400
+            xpos 450
 
 
 
