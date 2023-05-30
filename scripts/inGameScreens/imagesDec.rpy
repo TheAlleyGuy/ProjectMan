@@ -1,0 +1,1 @@
+define officeBackground = "gui/officeDesktop/officeMainScreen.webp"
