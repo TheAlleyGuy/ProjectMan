@@ -1,2 +1,16 @@
 *.save
 saves/persistent
+cache/bytecode-39.rpyb
+cache/screens.rpyb
+cache/shaders.txt
+saves/_reload-2-LT1.save
+saves/auto-1-LT1.save
+saves/auto-2-LT1.save
+saves/auto-3-LT1.save
+saves/auto-4-LT1.save
+saves/auto-6-LT1.save
+saves/auto-7-LT1.save
+saves/auto-9-LT1.save
+saves/auto-10-LT1.save
+saves/navigation.json
+saves/persistent
