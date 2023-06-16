@@ -14,3 +14,5 @@ saves/auto-9-LT1.save
 saves/auto-10-LT1.save
 saves/navigation.json
 saves/persistent
+saves/*
+cache/*
