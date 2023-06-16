@@ -75,7 +75,14 @@ style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
+style main_menu_button is button:
+    background "#d4141400"
+    xalign 0.5
 
+style main_menu_button_text:
+    size 60
+    idle_color "#C2EABD"
+    hover_color "#803625"
 
 ################################################################################
 ## In-game screens
@@ -353,16 +360,40 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    #add "gui/mainMenu/mainMenu.webp"
+    add "gui/mainMenu/main_menu_bg.png"
 
-    ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
-    use navigation
+    #use navigation
 
+    vbox:
+        xalign 0.5
+        yalign 0.6
+        spacing 40
+
+        textbutton _("NEW GAME") action Start() style "main_menu_button"
+        textbutton _("LOAD") action ShowMenu("load") style "main_menu_button"
+        textbutton _("OPTIONS") action ShowMenu("preferences") style "main_menu_button"
+        textbutton _("EXIT") action Quit(confirm=not main_menu) style "main_menu_button"
+
+    vbox:
+
+        xalign 0.5
+        yoffset 50
+        spacing -40
+         
+        text "[config.name!t]":
+            style "main_menu_title"
+        text "[config.version]":
+            style "main_menu_version"
+
+
+
+
+
+'''
     if gui.show_name:
 
         vbox:
@@ -372,8 +403,9 @@ screen main_menu():
                 style "main_menu_title"
 
             text "[config.version]":
-                style "main_menu_version"
-
+                xsize 3000
+                #style "main_menu_version"
+'''
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
@@ -388,20 +420,26 @@ style main_menu_frame:
     background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
-    xalign 1.0
-    xoffset -60
-    xmaximum 2400
-    yalign 1.0
+    xalign 0.5
+    #xoffset -60
+    #xmaximum 2400
+    yalign 0.1
     yoffset -60
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
 
 style main_menu_title:
-    properties gui.text_properties("title")
+    size 150
+    color "#FAA613"
+    font "fonts/Nunito-Bold.ttf"
+    
 
 style main_menu_version:
-    properties gui.text_properties("version")
+    size 90
+    color "#C2EABD"
+    font "fonts/Nunito-Bold.ttf"
+
 
 
 ## Game Menu screen ############################################################
