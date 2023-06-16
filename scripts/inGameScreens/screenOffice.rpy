@@ -15,9 +15,15 @@ screen statusBar:
     zorder 10
 
     frame:
+        background Frame("gui/input_frame_bg.png", Borders(25,25,25,25))
         xfill True
+        xpadding 50
+        xmargin 10
         yminimum 180
         ymaximum 180
+        ypos 15
+
+
         
         hbox: #=== MONEY HBOX ===#
             yalign 0.5
