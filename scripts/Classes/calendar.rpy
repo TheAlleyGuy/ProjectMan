@@ -2,7 +2,24 @@ init -1 python:
 
     class Calendar:
 
+
         def nextDay():
+
+            Calendar.IncreaseDay() #### JUMP TO THE NEXT DAY
+            Calendar.dayOfWeek() #### MAKE CONTROL OF WHAT IS THE DAY IN WEEK
+
+            Calendar.checkBills() ## CHECK IF HAS BILLS TO BE PAID IN THAT DAY
+                            
+            
+        def dayOfWeek():
+
+            global calendarWeekDay
+            calendarWeekDay += 1
+
+            if calendarWeekDay > 7:
+                calendarWeekDay = 1
+
+        def IncreaseDay():
 
             # IMPORTING GLOBAL VARIABLES
             global calendarDay
@@ -37,30 +54,18 @@ init -1 python:
                 calendarMonth = 1
                 calendarYear += 1
 
-
-            calendarWeekDay += 1
-
-            if calendarWeekDay > 7:
-                calendarWeekDay = 1
-                
-            calendarWeekDayString = "THRUSDAY"
-            
-            
-        def dayOfWeek():
-
+        def checkBills():
             global calendarWeekDay
+            global mcLoanBill
+            global mcMoney
+            global billInterable
+            global moneyDeduct
 
             if calendarWeekDay == 1:
-                return "SUNDAY"
-            elif calendarWeekDay == 2:
-                return "MONDAY"
-            elif calendarWeekDay == 3:
-                return "TUESDAY"
-            elif calendarWeekDay == 4:
-                return "WEDNESDAY"
-            elif calendarWeekDay == 5:
-                return "THRUSDAY"
-            elif calendarWeekDay == 6:
-                return "FRIDAY"
-            elif calendarWeekDay == 7:
-                return "SATURDAY"
+                moneyDeduct = round(((mcLoanBill/10000)*billInterable),2)
+
+                mcMoney -= round(moneyDeduct,2)
+                mcLoanBill -= round(moneyDeduct,2)
+                billInterable += round(billInterable,2)
+
+                renpy.show_screen("screenBillsOffice")
