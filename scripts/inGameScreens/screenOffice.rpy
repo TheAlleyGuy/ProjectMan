@@ -63,14 +63,49 @@ screen screenPCOffice:
     tag office
 
     zorder 1
-    #add wallpaper
+    add "gui/officeDesktop/desktop_office_wallpaper.jpg"
 
-    vbox:
-        yalign 0.5
-        xalign 0.5
-    
-        textbutton "Start First interview" action Jump("firstMeetClara")
-        textbutton "Desligar PC" action Show("statusBar"), Show("screenOffice")
+
+    frame: ### ICONS
+        align (0.5, 0.0)
+        background "#ecd6d600"
+        ymaximum 1950
+        
+        vpgrid: 
+
+            cols 3
+
+            draggable True
+            mousewheel True
+            
+            xfill True
+            yfill True
+
+            scrollbars "vertical"
+
+            # Since we have scrollbars, we have to position the side, rather
+            # than the vpgrid proper.
+            side_xalign 0.5
+
+            for i in range(1, 50):
+
+                imagebutton auto "gui/officeDesktop/desktopMailIcon_%s.webp":
+                    action Jump("firstMeetClara") 
+                    at office_desktop_icon
+
+    frame: ### TASKBAR
+
+        background "#00000000"
+        xalign 0.0
+        yalign 1.0
+        
+        xfill True
+
+        hbox:
+            imagebutton auto "gui/officeDesktop/office_desktop_turnoff_%s.webp":
+                action Show("statusBar"), Show("screenOffice") 
+                at office_desktop_icon 
+
 
 
 
